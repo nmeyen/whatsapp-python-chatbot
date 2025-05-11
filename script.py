@@ -292,7 +292,12 @@ def webhook():
                         if not send_whatsapp_message(sender_number, chunk, message_type='text'):
                             logging.error(f"Failed to send message chunk to {sender_number}")
                             break
-                    
+                        # Delay between messages
+                        import random
+                        import time
+                        if i < len(message_chunks) - 1:
+                            delay = random.uniform(0.55, 1.5)
+                            time.sleep(delay)
                     # Save the new exchange to history
                     # Ensure history format is compatible with genai: list of {'role': 'user'/'model', 'parts': ['text']}
                     conversation_history.append({'role': 'user', 'parts': [incoming_message_text]})

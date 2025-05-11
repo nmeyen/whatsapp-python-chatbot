@@ -117,10 +117,12 @@ In a typical production setup, you would run Gunicorn behind a reverse proxy lik
 ## 🔄 WaSenderAPI Webhook Configuration
 
 - Log in to your WaSenderAPI dashboard.
-- Navigate to the session/device management section.
+- Navigate to the session management section.
+- connect you phone number to the session.
 - Find the option to set or update the webhook URL.
 - Enter the publicly accessible URL where your Flask application's `/webhook` endpoint is running (e.g., your ngrok URL during development, or your production server's URL).
-- Ensure the webhook is configured to send `POST` requests for message events.
+- make sure you only select only **message_upsert**.
+- seve the changes.
 
 ## 📝 Customizing Your Bot's Personality
 
